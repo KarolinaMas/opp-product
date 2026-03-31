@@ -69,7 +69,17 @@ namespace ProductApp.Models
         {
             return (Quantity >= minQuantity && Price < maxPrice)
                 ? Price - (Price * percent / 100)
-                : Price;
+                : Price; // cia galima butu mest Exception kazoki, kaip ir kituose metoduse
+        }
+
+        public static Product CreateDefault()
+        {
+            return new Product("Unknown", 0.01, 0);
+        }
+
+        public static Product CreateDefault(string name)
+        {
+            return new Product(name, 0.01, 0);
         }
     }
 }

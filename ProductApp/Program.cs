@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using ProductApp.Models;
+﻿using ProductApp.Models;
 
 // ex. 1 & 2 - test if object is created successfully
 
@@ -42,7 +41,7 @@ static void LogProduct(Product product)
 {
     if (product != null)
     {
-        Console.WriteLine($"Most expensive car: {product.Name} {product.Price} {product.Quantity}");
+        Console.WriteLine($"Product: {product.Name} {product.Price} {product.Quantity}");
     }
     else
     {
@@ -63,13 +62,13 @@ LogProductList(carsList);
 
 Product mostExpensiveCar = ProductHelper.MostExpensive(carsList);
 
-// LogProduct(mostExpensiveCar);
+LogProduct(mostExpensiveCar);
 
 // ex. 6 test MostExpensive method with maxPrice parameter
 
 Product maxExpensiveCar = ProductHelper.MostExpensive(carsList, 2000);
 
-// LogProduct(maxExpensiveCar);
+LogProduct(maxExpensiveCar);
 
 // ex. 7 test ApplyDiscount
 
@@ -78,3 +77,8 @@ Console.WriteLine($"Before discount: {product2.Price}, after: {product2.ApplyDis
 Console.WriteLine(
     $"Before discount: {product2.Price}, after: {product2.ApplyDiscount(50, 3, 79.00)}"
 );
+
+// ex. 8 test CreateDefault
+
+LogProduct(Product.CreateDefault());
+LogProduct(Product.CreateDefault("Anonymus"));
