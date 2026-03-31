@@ -54,5 +54,22 @@ namespace ProductApp.Models
             Quantity = quantity;
             productCount++;
         }
+
+        public double ApplyDiscount(double percent)
+        {
+            return Price - (Price * percent / 100);
+        }
+
+        public double ApplyDiscount(double percent, int minQuantity)
+        {
+            return Quantity >= minQuantity ? Price - (Price * percent / 100) : Price;
+        }
+
+        public double ApplyDiscount(double percent, int minQuantity, double maxPrice)
+        {
+            return (Quantity >= minQuantity && Price < maxPrice)
+                ? Price - (Price * percent / 100)
+                : Price;
+        }
     }
 }

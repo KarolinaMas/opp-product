@@ -1,4 +1,5 @@
-﻿using ProductApp.Models;
+﻿using System.Runtime.InteropServices;
+using ProductApp.Models;
 
 // ex. 1 & 2 - test if object is created successfully
 
@@ -62,10 +63,18 @@ LogProductList(carsList);
 
 Product mostExpensiveCar = ProductHelper.MostExpensive(carsList);
 
-LogProduct(mostExpensiveCar);
+// LogProduct(mostExpensiveCar);
 
 // ex. 6 test MostExpensive method with maxPrice parameter
 
 Product maxExpensiveCar = ProductHelper.MostExpensive(carsList, 2000);
 
-LogProduct(maxExpensiveCar);
+// LogProduct(maxExpensiveCar);
+
+// ex. 7 test ApplyDiscount
+
+Console.WriteLine($"Before discount: {product2.Price}, after: {product2.ApplyDiscount(50)}");
+Console.WriteLine($"Before discount: {product2.Price}, after: {product2.ApplyDiscount(50, 3)}");
+Console.WriteLine(
+    $"Before discount: {product2.Price}, after: {product2.ApplyDiscount(50, 3, 79.00)}"
+);
